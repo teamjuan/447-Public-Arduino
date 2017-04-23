@@ -2,21 +2,41 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Arduino</title>
+    <title>Home Page</title>
       <link rel="stylesheet" type="text/css" href="homePage.css">
   </head>
+  <script type="text/javascript">
+  	function a(){
+        alert("Ask Megan If We Need To Get Rid Of This");
+    }
+  </script>
   <body>
     <div id = "header">
-        <button id = "about">About</button>
-        <button id = "tutorial">Tutorials</button>
-        <button id = "watch">Watch</button>
-        <button id = "logIn">Log In</button>
+        <form action="/~sg8/447/about.html">       	
+        	<center><input id = "about" type="submit" value="About"></input></center>
+        </form>
+        <form action="/~sg8/447/tutorial.html">       	
+        	<center><input id = "tutorial" type="submit" value="Tutorial"></input></center>
+        </form>
+        <button id = "watch" onclick="a()">Watch-Button Being Removed?</button>
+        <form action="/~sg8/447/login.html">       	
+        	<center><input id = "logIn" type="submit" value="LogIn"></input></center>	
+        	<!--
+        	<button onclick="location.href = 'http://userpages.umbc.edu/~sg8/447/login.html';" id="loogIn" >
+        	Home</button>
+        	-->
+        </form>
     </div>
     <div id = "middle">
         <ul>
-            <li><p id = "arduino">Arduino Academy</p></li>
-            <li><button id = "start">Start Now!</button></li>
-            <li><button id = "timeSlot">Schedule a timeslot</button></li>
+            <center><li><p id = "arduino">Arduino Academy</p></li></center>
+            <form action="/~sg8/447/startNow.html">       	
+	        	<center><input id = "about" type="submit" value="Start Now!"></input></center>
+	        </form>
+	        <br>
+            <form action="/~sg8/447/reservation.php">       	
+	        	<center><input id = "about" type="submit" value="Schedule A Timeslot"></input></center>
+	        </form>
         </ul>
     </div>
   </body>

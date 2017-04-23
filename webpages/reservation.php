@@ -11,7 +11,7 @@
     		border-collapse: collapse;
     	}
     </style>
-    <script type="text/javascript">
+    <script type="text/javascript" >
         function a(){
             alert("I think Sasha Is Great");
         }
@@ -44,6 +44,55 @@
             }
             
         }
+        function addTimeButton(type, id, time, day) {
+            //Create an input type dynamically.   
+            var element = document.createElement("input");
+            var date = new Date;
+            //console.log(Date.today());
+            var day = date.getDay(),
+                diff = date.getDate() - day; // adjust when day is sunday
+            date = new Date(date.setDate(diff));
+            console.log(date);
+            var dayOfWeek = date.getDate() + id;
+            var month = date.getMonth() + 1;
+            //Assign different attributes to the element. 
+            element.type = type;
+
+            if( time < 12){
+                time = time;
+                element.value = time + ":00 am";
+            }
+            else{
+                time = ((time + 11) % 12 + 1);
+                element.value = time + ":00 pm";
+            }
+            //element.value = time + ":00"; // Really? You want the default value to be the type string?
+            //element.name = String(time)+day+month+dayOfWeek; // And the name too?
+            element.name = time + '#' + date;
+            //document.write("alert('HELP ME')");
+            /*
+            var choice = document.getElementById("choice");
+            console.log(choice);
+            choice.value = String(time+day);
+            */
+            element.onclick = function(){
+                document.timeSubmit.submit();
+            };
+            /*
+            element.onclick = function() { // Note this is a function
+                var my_javascript_variable = <?php /*$_POST['time'] = time; */?>;
+                window.location.replace("reserve.php?time=" + time);
+                return false;
+                //$.post("reserve.php",{hora:time},function(){});        
+            };
+            //*/
+            console.log(id);
+            var foo = document.getElementById(id);
+            //Append the element in page (in span).  
+            foo.appendChild(element);
+            document.write("<br>");
+        }
+        
     </script>
   </head>
   <body>
@@ -77,6 +126,7 @@
                 var firstday = new Date(curr.setDate(curr.getDate() - curr.getDay())).toLocaleDateString().substr(0,4);
                 var lastday = new Date(curr.setDate(curr.getDate() - curr.getDay()+6)).toLocaleDateString().substr(0,4);
                 document.write("Week of " + firstday + "-" + lastday + "<br>");
+                <input type="hidden" name="choice" id="choice" value="wassup">
                 */
             </script>
             
@@ -84,25 +134,84 @@
          <div id = "Arrow"><t onclick="newDate('right')"> >> </t></div>
         <div class = "table">
             <div class = "DaysOfWeek">
-                <div class = "Sunday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Sunday" id = "0">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "0", i, "Sunday"  );
+                        }
+                    </script>
+                    
+                </div>
+                </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Monday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Monday" id = "1">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "1", i, "Monday" );
+                        }
+                    </script>
+                </div>
+            </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Tuesday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Tuesday" id = "2">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "2", i, "Tuesday" );
+                        }
+                    </script>
+                </div>
+            </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Wednesday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Wednesday" id = "3">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "3", i, "Wednesday" );
+                        }
+                    </script>
+                </div>
+            </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Thursday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Thursday" id = "4">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "4", i, "Thursday" );
+                        }
+                    </script>
+                </div>
+            </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Friday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Friday" id = "5">
+                    <script type="text/javascript">
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "5", i, "Friday" );
+                        }
+                    </script>
+                </div>
+            </form>
             </div>
             <div class = "DaysOfWeek">
-                <div class = "Saturday"></div>
+            <form name="timeSubmit" method="post" action="reserve.php">
+                <div class = "Saturday" id = "6">
+                    <script type="text/javascript">
+
+                        for (var i = 8; i <= 18; i++) {
+                            addTimeButton("submit", "6", i, "Saturday" );
+                        }
+                    </script>
+                       
+                </div>
+            <form name="timeSubmit" method="post" action="reserve.php">
             </div>
 
         </div>
