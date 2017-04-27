@@ -55,7 +55,10 @@
 		<ti><text id = "arduino">Arduino Academy</text></ti>        
         <button id = "logIn">Log In</button>
     </div>
-
+    <form action="/~sg8/447/homePage.html">         
+        <input id = "about" type="submit" value="Click me to go back to homePage"></input>
+    </form>
+    <br>
     <div align = "center" id = "timeSlot">
     	<label>Slot Type:</label>
     	<select name = "type">
