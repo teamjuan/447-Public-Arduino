@@ -1,0 +1,49 @@
+<!-- NEED TO HAVE https://ace.c9.io/ MASTER BUILD IN SAME FOLDER-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ACE in Action</title>
+<style type="text/css" media="screen">
+    #editor { 
+        position: absolute;
+        margin-left: auto;
+        margin-right: 0;        
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 49%;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="editor">void main()
+{
+    printf("hello world");
+}</div>
+
+
+<iframe width=50% height="360" src="https://www.youtube.com/embed/_9pavMzUY-c" frameborder="0" allowfullscreen></iframe>
+<br>    
+<button id="thing" margin-left="0">Save and Send</button>
+
+<script src="./ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/c_cpp");
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#thing").click(function(){
+        alert(editor.getValue());
+    });
+});
+</script>
+</body>
+</html>
