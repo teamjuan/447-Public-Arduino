@@ -1,0 +1,36 @@
+#arduino{
+    font-family: sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #ff751a;
+    text-align: center;
+}
+
+#start, #timeSlot{
+    border-style: hidden;
+    background-color: #f2f2f2;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 25px;
+}
+
+#start:hover, #timeSlot:hover{
+    background-color: #00979c;
+    color: white;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    margin:0 0 5px 0;
+    text-align: center;
+}
+
+#arduino{
+    font: Arial;
+}
