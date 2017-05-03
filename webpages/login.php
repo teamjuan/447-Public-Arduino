@@ -18,20 +18,19 @@
     }
     */
 	$username = $_POST['email'];   // was name tfFname on HTML FORM!!!
-	$password = $_POST['psw'];   // was name tfLname on HTML FORM!!!
+	$password = $_POST['pass'];   // was name tfLname on HTML FORM!!!
 
 	$_SESSION['email'] = $username;
-	$_SESSION['psw'] = $password;
+	$_SESSION['pass'] = $password;
     $specialLogin = false;
-    #$funLogin = array("SAHSA", "JUAN");
     $funLogin = array(
         "SASHA" => "//2.bp.blogspot.com/-aZdbCEiRZFQ/UZ4O3uN1ssI/AAAAAAAAO0E/YAXbewrqN1w/s1600/1920x1080-red-rose-desktop-wallpaper-55623759244.jpg",
         "JUAN" => "//www.nyan.cat"
         );
-    
+     
 	echo("<font size = '20'><span class='rainbow'> thank you for logging in: " . $username . "<br></span></font>");
 
-    $username = strtoupper($username);
+    $username = strtoupper($username); 
     if( array_key_exists($username, $funLogin) ){
         $url = $funLogin[$username];
         $specialLogin = true;
@@ -43,35 +42,54 @@
             sleep(1);
         }
         echo( "<meta http-equiv='refresh' content='0; url=" . $url . "' /> "); 
+        sleep(3);
     }
 
-    /*
     include ('CommonMethods.php');
 
     $debug = true;
     $COMMON = new Common($debug);
-
-    //Get the list of days of the weak and print them 
-    $sql = "SELECT * FROM `Users`  ";
+    // and `password` = '" . $password . "'
+    $sql = "SELECT * FROM `jalfano1`.`Users` WHERE 
+        `email` = '" . $username . "';"  ;
 
     $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+    $row = mysql_fetch_row($rs);
 
-    while( $row = mysql_fetch_row($rs) ){
+    // Account doesn't exist
+    if( mysql_num_rows($rs) == 0){
+        $sql = "INSERT INTO  `jalfano1`.`Users` (
+            `email` ,
+            `password`
+            )
+            VALUES (
+            '" . $username . "', '" . $password . "');" ;
 
-        if( $row[1] == $username && $row[2] == $password){
-            echo( "Success!!!!!!!1!");
-            for( $i = 3; $i >= 1; $i++){
-                echo("Redirection in: " . $i . "...");
-            }
-            sleep(1);
-        }
-        echo( "<option value=". $row[1] ." >". $row[1] ." </option>" );
-        
+        $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+
+        echo '<script language="javascript">';
+        echo 'alert("Welcome New User")';
+        echo '</script>';
+        echo( " <meta http-equiv='refresh' content='0; url=http://userpages.umbc.edu/~sg8/447/homePage.php'> " );
     }
-    */
-	session_write_close();
+    // Wrong password
+    else if( mysql_num_rows($rs) != 0 and $row[1] != $password){
+        echo '<script language="javascript">';
+        echo 'alert("Wrong password. Please try again")';
+        echo '</script>';
+        echo(" <meta http-equiv='refresh' content='0; url=http://userpages.umbc.edu/~sg8/447/login.html'> " );
+    }
+    // Account exists
+    else{
+        echo '<script language="javascript">';
+        echo 'alert("Thank you logging in. Please procede")';
+        echo '</script>';
+        echo( " <meta http-equiv='refresh' content='0; url=http://userpages.umbc.edu/~sg8/447/homePage.php'> " );
+        //echo("nada");
+    }
+
 	?>
-    <form action="/~sg8/447/homePage.html">         
+    <form action="/~sg8/447/homePage.php">         
         <input id = "about" type="submit" value="Click me to go back to homePage"></input> 
     </form>
      <form action="/~sg8/447/login.html">         

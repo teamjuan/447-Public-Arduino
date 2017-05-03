@@ -10,20 +10,19 @@
         <button id = "about">About</button>
         <button id = "tutorial">Tutorials</button>
         <button id = "watch">Watch-Button Being Removed?</button>
-        <button id = "logIn">Log In</button>
     </div>
-    <form action="/~sg8/447/homePage.html">       	
+    <form action="/~sg8/447/homePage.php">       	
     	<input id = "about" type="submit" value="Click me to go back to homePage"></input>	
     </form>
     <div id = "middle">
         <ul>
             <li><p id = "arduino">Arduino Academy</p></li>
-            <form action="/~sg8/447/login.php"" method="post" name="LoginForm">
+            <form action="/~sg8/447/login.php" method="post" name="LoginForm">
 			  	<li>Email:<br>
-			  	<input type="text" name="email" placeholder="username@umbc.edu">
+			  	<input type="text" name="email" placeholder="username@umbc.edu" required>
 			  	<br>
 			  	Password:<br>
-			  	<input type="password" name="psw">
+			  	<input type="password" name="pass" required>
 			  	<br><br>
 			  	<input type="submit" value="Submit">
 			  	</li>

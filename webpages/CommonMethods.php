@@ -8,7 +8,7 @@ class Common
   function Common($debug)
   {
     $this->debug = $debug; 
-    $rs = $this->connect("sg8"); // db name really here
+    $rs = $this->connect("jalfano1"); // db name really here
     return $rs;
   }
 
@@ -16,7 +16,7 @@ class Common
   
   function connect($db)// connect to MySQL
   {
-    $conn = @mysql_connect("studentdb.gl.umbc.edu", "sg8", "sg8") or die("Could not connect to MySQL");
+    $conn = @mysql_connect("studentdb-maria.gl.umbc.edu", "jalfano1", "jalfano1") or die("Could not connect to MySQL");
     $rs = @mysql_select_db($db, $conn) or die("Could not connect select $db database");
     $this->conn = $conn; 
   }

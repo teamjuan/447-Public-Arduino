@@ -44,6 +44,7 @@
     position: absolute;
     width: 60%;
     left: 20%;
+    height: 90%;
 }
 
 ul{
@@ -81,10 +82,10 @@ ti{
 	text-decoration: underline;
 }
 
-.table{
+.table{ 
 	position:relative;  /*so children div can use 100% height and not go over */
 	width:100%; /* as long as this div's parent is body it will take up whole screen */
-	height:250px; /*make whatever you want */
+	height:500px; /*make whatever you want */
 	padding:8px; /* will make that spacing you wanted */
 }
 
