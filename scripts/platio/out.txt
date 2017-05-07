@@ -1,0 +1,29 @@
+[Sun May  7 19:26:47 2017] Processing uno (platform: atmelavr, board: uno, framework: arduino)
+-------------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+Collected 27 compatible libraries
+Looking for dependencies...
+Project does not have dependencies
+Compiling .pioenvs/uno/src/main.o
+src/main.cpp:7:11: error: #include expects "FILENAME" or <FILENAME>
+#include
+^
+src/main.cpp:11:1: error: 'Servo' does not name a type
+Servo servo;
+^
+src/main.cpp: In function 'void setup()':
+src/main.cpp:17:3: error: 'servo' was not declared in this scope
+servo.attach(servoPin);
+^
+src/main.cpp: In function 'void loop()':
+src/main.cpp:26:5: error: 'servo' was not declared in this scope
+servo.write(angle);
+^
+src/main.cpp:32:5: error: 'servo' was not declared in this scope
+servo.write(angle);
+^
+src/main.cpp:34:3: error: expected ';' before '}' token
+}
+^
+*** [.pioenvs/uno/src/main.o] Error 1
+============================= [ERROR] Took 0.48 seconds =============================
