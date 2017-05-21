@@ -1,11 +1,11 @@
+<?php session_start(); ?> 
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 	<meta charset="UTF-8">
-	<title>Log In</title>
-	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<title>Home Page</title>
 	<link rel="stylesheet" type="text/css" href="common.css">
-	<link rel="stylesheet" type="text/css" href="login.css">
+	<link rel="stylesheet" type="text/css" href="homePage.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <script type="text/javascript">
@@ -22,35 +22,31 @@ function tutorial(){
 function homepage(){
 	window.location = "http://userpages.umbc.edu/~sg8/447/homePage.php";
 }
+function start(){
+	window.location = "http://userpages.umbc.edu/~sg8/447/ide.php";
+}
+function reservation(){
+	window.location = "http://userpages.umbc.edu/~sg8/447/reservation.php";
+}
 </script>
 <body>
 	<div id = "header">
+		<i id = "icon" onclick="homepage()" class="material-icons" style="font-size:32px; color:#ff751a;">home</i>
 		<button id = "about" onclick="about()">About</button>
 		<button id = "tutorial" onclick="tutorial()">Tutorials</button>
 		<button id = "watch" onclick="watch()">Watch</button>
+		<?php
+		$username = $_SESSION['email'];
+		echo(" <button id = 'logIn'> Welcome: " . $username . "</button>");
+		?>
 	</div>
-	<!--
-	<i id = "icon" onclick="homepage()" class="material-icons" style="font-size:32px; color:#ff751a;">home</i>
-	<form action="/~sg8/447/homePage.php">       	
-		<input id = "about" type="submit" value="Click me to go back to homePage"></input>	
-	</form>
-	-->
 	<div id = "middle">
-		<ul id = "loginInfo">
-			<li><p id = "arduino">Arduino Academy</p></li>
-			<form action="/~sg8/447/login.php" method="post" name="LoginForm">
-				<div id = "inner">			
-					<li>Email:<br>
-						<input id = "mail" type="text" name="email" placeholder="  username@umbc.edu" required>
-						<br>
-						Password:<br>
-						<input id = "password" type="password" name="pass" required>
-						<br><br>
-						<input id = "sub" type="submit" value="Submit">
-					</li>
-				<div>
-			</form>
-		</ul>
+	    <ul>
+	        <li><p id = "arduino">Arduino Academy</p></li>
+	        <li><button id = "start" onclick="start()">Start Now!</button></li>
+	        <br><br>
+	        <li><button id = "timeSlot" onclick="reservation()">Schedule a timeslot</button></li>
+	    </ul>
 	</div>
 </body>
 </html>

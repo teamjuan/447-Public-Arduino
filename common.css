@@ -5,11 +5,12 @@
     font-family: sans-serif;
 }
 
-#about, #tutorial, #watch, #logIn, #build, #upload{
+#about, #tutorial, #watch, #logIn, #build, #upload, #homeIcon{
     border-style: hidden;
     background-color: #f2f2f2;
     padding: 15px 32px;
     text-align: center;
+    color: #00979c;
     display: inline-block;
     font-size: 18px;
     font-weight: bolder;
@@ -20,12 +21,12 @@
     float: right;
 }
 
-#about:hover, #tutorial:hover, #watch:hover, #logIn:hover, #build:hover, #upload:hover, #reset:hover{
+#about:hover, #tutorial:hover, #watch:hover, #logIn:hover, #build:hover, #upload:hover, #reset:hover, #homeIcon:hover{
     background-color: #00979c;
     color: white;
 }
 
-#middle{
+#middle{ 
 }
 
 #arduino{
